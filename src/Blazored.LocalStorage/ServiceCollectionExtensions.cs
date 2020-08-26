@@ -21,6 +21,7 @@ namespace Blazored.LocalStorage
         public static IServiceCollection AddBlazoredLocalStorage(this IServiceCollection services, Action<LocalStorageOptions> configure)
         {
             return services
+                .AddScoped<IDataTransformer, DataTransformer>()
                 .AddScoped<ILocalStorageService, LocalStorageService>()
                 .AddScoped<ISyncLocalStorageService, LocalStorageService>()
                 .Configure<LocalStorageOptions>(configureOptions =>

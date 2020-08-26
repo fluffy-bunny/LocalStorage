@@ -25,7 +25,7 @@ namespace Blazored.LocalStorage.Tests.LocalStorageServiceTests
             _jsonOptions = new JsonSerializerOptions();
             _jsonOptions.Converters.Add(new TimespanJsonConverter());
             _mockOptions.Setup(u => u.Value).Returns(new LocalStorageOptions());
-            _sut = new LocalStorageService(_mockJSRuntime.Object, _mockOptions.Object);
+            _sut = new LocalStorageService(_mockJSRuntime.Object, _mockOptions.Object, new DataTransformer());
         }
 
         [Fact]
